@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchout - Stay Ahead. - Stay Watchout</title>
+    <link rel="website icon" type="png" href="img/jadi.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slideUp': 'slideUp 0.8s ease-out',
+                        'fadeIn': 'fadeIn 1s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        glow: {
+                            'from': { boxShadow: '0 0 20px #3b82f6' },
+                            'to': { boxShadow: '0 0 40px #3b82f6, 0 0 60px #3b82f6' },
+                        },
+                        slideUp: {
+                            'from': { transform: 'translateY(50px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%); }
+        .neon-glow { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+        .text-gradient { background: linear-gradient(135deg, #3b82f6, #8b5cf6); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        .hover-lift { transition: transform 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-10px); }
+        .hero-video-section { position: relative; }
+        .hero-video-section video { filter: brightness(0.8); }
+        .navbar-menu { 
+            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .navbar-menu.hidden { 
+            opacity: 0; 
+            transform: translateY(-15px) scale(0.95);
+            pointer-events: none;
+        }
+        .hover-lift:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="flex justify-between items-center h-12">
+                <div class="flex items-center">
+                    <img src="img/jadi.png" alt="Watchout Logo" class="h-6 w-8 mr-2">
+                    <div class="text-lg font-bold text-gradient">Watchout</div>
+                </div>
+                <div class="hidden md:flex space-x-6 navbar-menu hidden">
+                    <a href="#features" class="hover:text-blue-400 transition-colors text-sm">Fitur</a>
+                    <a href="#products" class="hover:text-blue-400 transition-colors text-sm">Produk</a>
+                    <a href="#testimonials" class="hover:text-blue-400 transition-colors text-sm">Review</a>
+                    <a href="#pricing" class="hover:text-blue-400 transition-colors text-sm">Harga</a>
+                </div>
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-1.5 rounded-full font-semibold hover:scale-105 transition-transform navbar-menu hidden text-sm">
+                    Beli Sekarang
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-video-section min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Video Background -->
+        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="hero-video.mp4" type="video/mp4">
+            <!-- Fallback image if video fails to load -->
+            <img src="img/Download_free_png_of_PNG_Pizza_food_white_background_mozzarella__by_Ratcharin_Noiruksa_about_png__circle__food__tomato__and_sausage_13245353-removebg-preview.png" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover">
+        </video>
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+
+        <!-- Centered Slogan Only -->
+        <div class="relative z-20 text-center animate-slideUp">
+            <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                <div class="block">Stay</div>
+                <div class="block text-gradient">Ahead.</div>
+                <div class="block mt-2">Stay</div>
+                <div class="block text-gradient">Watchout</div>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Fitur <span class="text-gradient">Revolusioner</span>
+                </h2>
+                <p class="text-base text-gray-400 max-w-2xl mx-auto">
+                    Teknologi terdepan yang menghadirkan pengalaman smartwatch tak tertandingi
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-gray-800 p-5 rounded-xl hover-lift glass-effect border border-gray-700 group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Monitor Jantung</h3>
+                    <p class="text-gray-400 text-sm">Pemantauan detak jantung 24/7 dengan akurasi tinggi menggunakan sensor optik terbaru</p>
+                </div>
+                
+                <div class="bg-gray-800 p-5 rounded-xl hover-lift glass-effect border border-gray-700 group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">GPS Presisi</h3>
+                    <p class="text-gray-400 text-sm">Pelacakan lokasi akurat dengan GPS multi-satelit untuk aktivitas outdoor Anda</p>
+                </div>
+                
+                <div class="bg-gray-800 p-5 rounded-xl hover-lift glass-effect border border-gray-700 group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Notifikasi Pintar</h3>
+                    <p class="text-gray-400 text-sm">Terima panggilan, pesan, dan notifikasi aplikasi langsung di pergelangan tangan</p>
+                </div>
+                
+                <div class="bg-gray-800 p-5 rounded-xl hover-lift glass-effect border border-gray-700 group">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM9.29 16.29L5.7 12.7c-.39-.39-.39-1.02 0-1.41.39-.39 1.02-.39 1.41 0L10 14.17l6.88-6.88c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41l-7.59 7.59c-.38.39-1.02.39-1.41 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3">Tahan Air 5ATM</h3>
+                    <p class="text-gray-400 text-sm">Tahan air hingga 50 meter, cocok untuk berenang dan aktivitas air lainnya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section id="products" class="py-12 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Pilihan <span class="text-gradient">Warna</span>
+                </h2>
+                <p class="text-base text-gray-400">Ekspresikan gaya Anda dengan berbagai pilihan warna premium</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="relative">
+                    <div id="productImage" class="relative z-10 transition-all duration-500">
+                        <img src="img/hitam.png" 
+                             alt="ChronoX Black" 
+                             class="w-full max-w-sm mx-auto animate-float" />
+                    </div>
+                    <div class="absolute -inset-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full opacity-20 blur-2xl"></div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex space-x-3 justify-center lg:justify-start">
+                        <button onclick="changeColor('black')" data-color="black" class="w-12 h-12 bg-gray-900 border-3 border-blue-500 rounded-full hover:scale-110 transition-transform color-btn active"></button>
+                        <button onclick="changeColor('white')" data-color="white" class="w-12 h-12 bg-white border-3 border-gray-300 rounded-full hover:scale-110 transition-transform color-btn"></button>
+                        <button onclick="changeColor('orange')" data-color="orange" class="w-12 h-12 bg-orange-500 border-3 border-transparent rounded-full hover:scale-110 transition-transform color-btn"></button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold">Watchout Series</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-400 text-sm">Layar</span>
+                                <span class="text-sm">1.4" AMOLED Always-On</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400 text-sm">Baterai</span>
+                                <span class="text-sm">7 Hari Normal Use</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400 text-sm">Storage</span>
+                                <span class="text-sm">32GB + 4GB RAM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400 text-sm">Konektivitas</span>
+                                <span class="text-sm">WiFi, Bluetooth 5.3, NFC</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-400 text-sm">Sensor</span>
+                                <span class="text-sm">Heart Rate, SpO2, ECG</span>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-full font-bold text-sm hover:scale-105 transition-transform neon-glow">
+                            Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Section -->
+    <section class="py-12 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Hidup Lebih <span class="text-gradient">Sehat</span>
+                </h2>
+                <p class="text-base text-gray-400">Temani setiap momen hidup Anda dengan teknologi terdepan</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <div class="bg-gradient-to-br from-blue-900 to-purple-900 h-48 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3">Olahraga</h3>
+                            <p class="text-gray-300 text-sm">50+ mode olahraga dengan tracking akurat untuk semua aktivitas fisik Anda</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <div class="bg-gradient-to-br from-green-900 to-emerald-900 h-48 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3">Kesehatan</h3>
+                            <p class="text-gray-300 text-sm">Monitor tidur, stress, dan kesehatan mental dengan AI health assistant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative group overflow-hidden rounded-2xl">
+                    <div class="bg-gradient-to-br from-purple-900 to-pink-900 h-48 flex items-center justify-center">
+                        <div class="text-center p-6">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 13.5l3.5 2.5L12 18.5 8.5 16l3.5-2.5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-bold mb-3">Produktivitas</h3>
+                            <p class="text-gray-300 text-sm">Kelola jadwal, reminder, dan tetap terhubung dengan semua yang penting</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Watchout Section -->
+    <section class="py-12 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Kenapa <span class="text-gradient">Watchout</span>?
+                </h2>
+                <p class="text-base text-gray-400 max-w-2xl mx-auto">
+                    Temukan mengapa Watchout menjadi pilihan jutaan pengguna di seluruh dunia
+                </p>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="bg-gray-900 rounded-2xl p-6 md:p-8 overflow-hidden">
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <!-- Header -->
+                    <div class="text-center md:text-left">
+                        <h3 class="text-lg font-bold text-white mb-2">Fitur</h3>
+                        <p class="text-gray-400 text-xs">Perbandingan dengan kompetitor</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-white font-bold text-sm">W</span>
+                        </div>
+                        <h4 class="font-bold text-blue-400 text-sm">Watchout</h4>
+                        <p class="text-xs text-gray-400">Series</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-white font-bold text-sm">A</span>
+                        </div>
+                        <h4 class="font-bold text-gray-300 text-sm">Brand A</h4>
+                        <p class="text-xs text-gray-400">Premium</p>
+                    </div>
+                </div>
+
+                <!-- Features Comparison -->
+                <div class="space-y-3">
+                    <!-- Battery Life -->
+                    <div class="grid md:grid-cols-3 gap-4 items-center py-3 border-b border-gray-700">
+                        <div class="font-medium text-gray-300 text-sm">Baterai</div>
+                        <div class="text-center">
+                            <div class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">24 Jam</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-bold">18 Jam</div>
+                        </div>
+                    </div>
+
+                    <!-- Display -->
+                    <div class="grid md:grid-cols-3 gap-4 items-center py-3 border-b border-gray-700">
+                        <div class="font-medium text-gray-300 text-sm">Layar Always-On</div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-red-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Health Monitoring -->
+                    <div class="grid md:grid-cols-3 gap-4 items-center py-3 border-b border-gray-700">
+                        <div class="font-medium text-gray-300 text-sm">ECG + SpO2</div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- GPS Accuracy -->
+                    <div class="grid md:grid-cols-3 gap-4 items-center py-3 border-b border-gray-700">
+                        <div class="font-medium text-gray-300 text-sm">GPS Presisi Tinggi</div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-red-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Water Resistance -->
+                    <div class="grid md:grid-cols-3 gap-4 items-center py-3 border-b border-gray-700">
+                        <div class="font-medium text-gray-300 text-sm">Tahan Air 5ATM</div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div class="text-center">
+                            <svg class="w-5 h-5 text-green-500 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="grid md:grid-cols-3 gap-4 items-center py-3">
+                        <div class="font-medium text-gray-300 text-sm">Harga Terjangkau</div>
+                        <div class="text-center">
+                            <div class="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold">Rp 2.5jt</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">Rp 5jt+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-12 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                    Apa Kata <span class="text-gradient">Pengguna</span>
+                </h2>
+                <p class="text-base text-gray-400">Ribuan pengguna telah merasakan perbedaannya</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-sm">AS</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Andi Setiawan</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic text-sm">"Smartwatch terbaik yang pernah saya pakai! Battery life luar biasa dan fitur kesehatan sangat akurat. Highly recommended!"</p>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-sm">SP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Sarah Putri</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic text-sm">"Desainnya premium banget dan fitur GPS-nya sangat akurat untuk jogging. Sekarang olahraga jadi lebih fun dan terukur!"</p>
+                </div>
+                
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-sm">DR</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">David Rahman</h4>
+                            <div class="flex text-yellow-400 text-xs">
+                                ⭐⭐⭐⭐⭐
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic text-sm">"Game changer untuk produktivitas! Notifikasi pintar membantu saya tetap connected tanpa harus selalu pegang HP."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & CTA -->
+    <section id="pricing" class="py-12 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-3 sm:px-4 lg:px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">
+                Siap Upgrade <span class="text-gradient">Gaya Hidup</span> Anda?
+            </h2>
+            
+            <div class="bg-gray-900 border-2 border-blue-500 rounded-2xl p-8 mb-8">
+                <div class="mb-6">
+                    <div class="text-4xl font-bold text-white mb-3">Rp 2.499.000</div>
+                    <div class="text-gray-400 line-through text-lg mb-2">Rp 3.499.000</div>
+                    <div class="bg-red-600 text-white px-3 py-1 rounded-full inline-block font-bold text-sm">
+                        HEMAT Rp 1.000.000
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-4 text-left mb-6">
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Garansi Resmi 2 Tahun
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Free Ongkir Seluruh Indonesia
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            30 Hari Money Back Guarantee
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Premium Gift Box
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            24/7 Customer Support
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-green-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Cicilan 0% 12 Bulan
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <button class="w-full bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-full font-bold text-lg hover:scale-105 transition-transform animate-glow">
+                        🚀 BELI SEKARANG - STOCK TERBATAS!
+                    </button>
+                    <!-- <p class="text-xs text-gray-400">*Promo berakhir dalam 48 jam | Tersisa 23 unit</p> -->
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-400 text-sm">
+                <p>Trusted by 50,000+ customers | Rated 4.9/5 ⭐</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="max-w-6xl mx-auto px-3 sm:px-4 lg:px-6">
+            <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <div>
+                    <div class="text-xl font-bold text-gradient mb-3">Watchout</div>
+                    <p class="text-gray-400 mb-4 text-sm">Revolusi smartwatch dengan teknologi masa depan untuk hidup yang lebih sehat dan produktif.</p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <span class="text-xs">f</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <span class="text-xs">ig</span>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <span class="text-xs">tw</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-3 text-sm">Produk</h4>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white">Watchout Series</a></li>
+                        <li><a href="#" class="hover:text-white">Aksesoris</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-3 text-sm">Support</h4>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-white">Customer Service</a></li>
+                        <li><a href="#" class="hover:text-white">Garansi</a></li>
+                        <li><a href="#" class="hover:text-white">Panduan Setup</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-3 text-sm">Kontak</h4>
+                    <ul class="space-y-1 text-gray-400 text-sm">
+                        <li>📞 0851-1234-5678</li>
+                        <li>📧 Watchout@gamil.com</li>
+                        <li>📍 Jakarta, Indonesia</li>
+                        <li>🕐 24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Watchout Indonesia. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Color Selector Function
+        function changeColor(color) {
+            const productImage = document.getElementById('productImage');
+            const colorButtons = document.querySelectorAll('.color-btn');
+            
+            // Remove active class from all buttons
+            colorButtons.forEach(btn => btn.classList.remove('active', 'border-blue-500'));
+            
+            // Add active class to clicked button
+            event.target.classList.add('active', 'border-blue-500');
+            
+            // Change product image based on color (you can replace with actual color variants)
+            let newImageSrc = '';
+            switch(color) {
+                case 'black':
+                    newImageSrc = "img/hitam.png";
+                    break;
+                case 'white':
+                    newImageSrc = "putih.png";
+                    break;
+                case 'orange':
+                    newImageSrc = "oren.png";
+                    break;
+            }
+            
+            productImage.querySelector('img').src = newImageSrc;
+            productImage.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                productImage.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.hover-lift');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading state to buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.textContent.includes('Beli') || this.textContent.includes('Add to Cart')) {
+                    const originalText = this.textContent;
+                    this.textContent = 'Processing...';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.disabled = false;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Countdown Timer (optional enhancement)
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (48 * 60 * 60 * 1000); // 48 hours from now
+            
+            const distance = endTime - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // You can add countdown display here if needed
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Color change function for product showcase
+        function changeColor(color, isAutoRotate = false) {
+            const productImage = document.getElementById('productImage').querySelector('img');
+            const colorButtons = document.querySelectorAll('.color-btn');
+            
+            // Remove active class from all buttons
+            colorButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Find and activate the correct button
+            const targetButton = Array.from(colorButtons).find(btn => 
+                btn.getAttribute('data-color') === color
+            );
+            
+            if (targetButton) {
+                targetButton.classList.add('active');
+            }
+            
+            // Change product image based on color
+            const images = {
+                'black': 'img/hitam.png',
+                'white': 'img/putih.png',
+                'orange': 'img/oren.png'
+            };
+            
+            if (images[color]) {
+                productImage.src = images[color];
+                productImage.alt = `ChronoX ${color.charAt(0).toUpperCase() + color.slice(1)}`;
+                
+                // Add fade effect
+                productImage.style.opacity = '0';
+                setTimeout(() => {
+                    productImage.style.opacity = '1';
+                }, 100);
+            }
+            
+            // Update border colors and raised effect for active button
+            colorButtons.forEach(btn => {
+                if (btn.classList.contains('active')) {
+                    btn.style.borderColor = '#3b82f6';
+                    btn.style.boxShadow = '0 4px 8px rgba(59, 130, 246, 0.3), 0 2px 4px rgba(59, 130, 246, 0.2)';
+                    btn.style.transform = 'translateY(-2px) scale(1.05)';
+                } else {
+                    btn.style.borderColor = 'transparent';
+                    btn.style.boxShadow = 'none';
+                    btn.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        }
+        
+        // Navbar visibility based on scroll position
+        const navbarMenu = document.querySelectorAll('.navbar-menu');
+        const heroSection = document.querySelector('.hero-video-section');
+        
+        const navbarObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Hide navbar menu when hero section is visible
+                    setTimeout(() => {
+                        navbarMenu.forEach(element => {
+                            element.classList.add('hidden');
+                        });
+                    }, 50); // Small delay for smoother transition
+                } else {
+                    // Show navbar menu when hero section is not visible (all sections below)
+                    setTimeout(() => {
+                        navbarMenu.forEach(element => {
+                            element.classList.remove('hidden');
+                        });
+                    }, 50); // Small delay for smoother transition
+                }
+            });
+        }, {
+            threshold: 0.05, // More sensitive trigger
+            rootMargin: '0px 0px -100px 0px' // Trigger slightly earlier
+        });
+        
+        if (heroSection) {
+            navbarObserver.observe(heroSection);
+        }
+        
+        // Auto-rotate colors
+        const colors = ['black', 'white', 'orange'];
+        let currentColorIndex = 0; // Start with black (index 0)
+        let autoRotateInterval;
+        
+        function startAutoRotate() {
+            autoRotateInterval = setInterval(() => {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                changeColor(colors[currentColorIndex]);
+            }, 3000); // Change every 3 seconds
+        }
+        
+        function stopAutoRotate() {
+            clearInterval(autoRotateInterval);
+        }
+        
+        // Start auto-rotate when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set initial color
+            changeColor(colors[currentColorIndex]);
+            startAutoRotate();
+            
+            // Pause auto-rotate on hover over product showcase
+            const productShowcase = document.getElementById('products');
+            if (productShowcase) {
+                productShowcase.addEventListener('mouseenter', stopAutoRotate);
+                productShowcase.addEventListener('mouseleave', startAutoRotate);
+            }
+            
+            // Pause auto-rotate when color button is clicked
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    stopAutoRotate();
+                    setTimeout(startAutoRotate, 8000); // Resume after 8 seconds
+                });
+            });
+        });
+    </script>
+</body>
+</html>
